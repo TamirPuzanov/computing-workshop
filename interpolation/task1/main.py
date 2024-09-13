@@ -34,16 +34,25 @@ def main():
 
     coef = fn.newton_interpolation_pcoef(N, X, Y)
 
+    plt.subplot(121)
+
     ymin, ymax = fn.plot(lambda x: F(x), a, b, step)
 
     fn.plot(lambda x: fn.newton_interpolation(x, N, coef, X), a, b, step)
-    # fn.plot(lambda x: fn.linear_interpolation(x, N, X, Y), a, b, step)
-
-    plt.legend(['φ(x)', 'f(x)'])
-
     plt.plot(X, Y, 'ro')
 
     plt.axis([a, b, ymin, ymax])
+    plt.legend(['φ(x)', 'f(x)'])
+
+    plt.subplot(122)
+
+    ymin, ymax = fn.plot(lambda x: F(x), a, b, step)
+
+    fn.plot(lambda x: fn.linear_interpolation(x, N, X, Y), a, b, step)
+    plt.plot(X, Y, 'ro')
+
+    plt.axis([a, b, ymin, ymax])
+    plt.legend(['φ(x)', 'f(x)'])
 
     plt.show()
 
