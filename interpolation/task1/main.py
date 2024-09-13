@@ -39,6 +39,8 @@ def main():
     fn.plot(lambda x: fn.newton_interpolation(x, N, coef, X), a, b, step)
     # fn.plot(lambda x: fn.linear_interpolation(x, N, X, Y), a, b, step)
 
+    plt.legend(['φ(x)', 'f(x)'])
+
     plt.plot(X, Y, 'ro')
 
     plt.axis([a, b, ymin, ymax])
